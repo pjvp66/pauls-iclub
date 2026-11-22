@@ -48,38 +48,22 @@ footer{text-align:center;padding:30px 20px;background:#061225;border-top:1px sol
 <p class="intro">Explore videos from doctors, nutritionists, and other speakers sharing their own viewpoints and experiences related to health and wellness.</p>
 </header>
 <section class="videos container" aria-label="Featured videos">
-<div id="video-gallery" class="grid"></div>
+<div id="video-gallery" class="grid">
+<article class="card">
+  <div class="media short">
+    <iframe src="https://www.youtube-nocookie.com/embed/LAHmcqGIMzs" title="Featured Health &amp; Wellness Video" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+  </div>
+  <div class="card-body">
+    <h2>Featured Health &amp; Wellness Video</h2>
+    <p class="description">Watch this perspective from its original YouTube source.</p>
+    <a class="source" href="https://www.youtube.com/shorts/LAHmcqGIMzs" target="_blank" rel="noopener noreferrer">View original video</a>
+  </div>
+</article>
+</div>
 </section>
 <div class="container notice"><strong>Important:</strong> Featured videos reflect the individual speaker's views and do not necessarily represent an endorsement of Paul's IClub or any recommended product. Content is educational, not medical advice. Professional credentials should be independently verified. Videos are embedded only when permitted by their source platform; permission is needed before re-uploading third-party content.</div>
 </main>
 <footer>&copy; 2026 Paul's IClub. All rights reserved.<div>Connecting Products, Perspectives &amp; Possibilities!</div></footer>
-<script>
-// Add approved videos here. For YouTube, copy the 11-character ID from the video's URL.
-// Example: {title:"Video title",speaker:"Speaker name",credentials:"Verified credentials",description:"Brief description",youtubeId:"XXXXXXXXXXX",sourceUrl:"https://www.youtube.com/watch?v=XXXXXXXXXXX"}
-// Other social platforms may require an approved embed or a link to the original video.
-const videos=[
-  {
-    title:"Featured Health & Wellness Video",
-    description:"A shared video perspective. Watch the original source for full context.",
-    youtubeId:"LAHmcqGIMzs",
-    sourceUrl:"https://www.youtube.com/shorts/LAHmcqGIMzs",
-    format:"short"
-  }
-];
-const gallery=document.getElementById('video-gallery');
-function element(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;}
-if(!videos.length){const card=element('article','card');const box=element('div','card-body');box.append(element('h2','', 'Featured Videos Coming Soon'),element('p','description','We are preparing our collection of educational videos and perspectives. Please check back soon.'));card.append(box);gallery.append(card);}
-for(const v of videos){
- const card=element('article','card'),media=element('div','media'),body=element('div','card-body');
- if(v.youtubeId && /^[a-zA-Z0-9_-]{11}$/.test(v.youtubeId)){const iframe=document.createElement('iframe');iframe.src='https://www.youtube-nocookie.com/embed/'+v.youtubeId;iframe.title=v.title||'Featured video';iframe.loading='lazy';iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';media.append(iframe);}
- else media.append(element('p','', 'Watch at original source'));
- body.append(element('h2','',v.title||'Featured video'));
- if(v.speaker)body.append(element('p','speaker',v.speaker+(v.credentials?' · '+v.credentials:'')));
- if(v.description)body.append(element('p','description',v.description));
- if(v.sourceUrl && /^https:\/\//.test(v.sourceUrl)){const a=element('a','source','View original video');a.href=v.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';body.append(a);}
- if(v.format==='short')media.classList.add('short');
- card.append(media,body);gallery.append(card);
-}
-</script>
+
 </body>
 </html>

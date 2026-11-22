@@ -51,30 +51,40 @@ footer{text-align:center;padding:30px 20px;background:#061225;border-top:1px sol
 <div id="video-gallery" class="grid">
 <article class="card">
   <div class="media short">
-    <iframe id="testimonial-player-1" src="https://www.youtube-nocookie.com/embed/LAHmcqGIMzs?enablejsapi=1" title="Featured Health &amp; Wellness Video" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+    <iframe id="testimonial-player-1" src="https://www.youtube-nocookie.com/embed/dJjYovOwKi0?enablejsapi=1" title="Featured Health &amp; Wellness Video 1" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
   </div>
   <div class="card-body">
-    <h2>Featured Health &amp; Wellness Video</h2>
+    <h2>Featured Health &amp; Wellness Video 1</h2>
+    <p class="description">Watch this perspective from its original YouTube source.</p>
+    <a class="source" href="https://www.youtube.com/shorts/dJjYovOwKi0" target="_blank" rel="noopener noreferrer">View original video</a>
+  </div>
+</article>
+<article class="card">
+  <div class="media short">
+    <iframe id="testimonial-player-2" src="https://www.youtube-nocookie.com/embed/LAHmcqGIMzs?enablejsapi=1" title="Featured Health &amp; Wellness Video 2" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+  </div>
+  <div class="card-body">
+    <h2>Featured Health &amp; Wellness Video 2</h2>
     <p class="description">Watch this perspective from its original YouTube source.</p>
     <a class="source" href="https://www.youtube.com/shorts/LAHmcqGIMzs" target="_blank" rel="noopener noreferrer">View original video</a>
   </div>
 </article>
 <article class="card">
   <div class="media short">
-    <iframe id="testimonial-player-2" src="https://www.youtube-nocookie.com/embed/10VNWYOPsmk?enablejsapi=1" title="Featured Health &amp; Wellness Video 2" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+    <iframe id="testimonial-player-3" src="https://www.youtube-nocookie.com/embed/10VNWYOPsmk?enablejsapi=1" title="Featured Health &amp; Wellness Video 3" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
   </div>
   <div class="card-body">
-    <h2>Featured Health &amp; Wellness Video 2</h2>
+    <h2>Featured Health &amp; Wellness Video 3</h2>
     <p class="description">Watch this perspective from its original YouTube source.</p>
     <a class="source" href="https://www.youtube.com/shorts/10VNWYOPsmk" target="_blank" rel="noopener noreferrer">View original video</a>
   </div>
 </article>
 <article class="card">
   <div class="media short">
-    <iframe id="testimonial-player-3" src="https://www.youtube-nocookie.com/embed/bYyecKjXgyI?enablejsapi=1" title="Featured Health &amp; Wellness Video 3" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+    <iframe id="testimonial-player-4" src="https://www.youtube-nocookie.com/embed/bYyecKjXgyI?enablejsapi=1" title="Featured Health &amp; Wellness Video 4" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
   </div>
   <div class="card-body">
-    <h2>Featured Health &amp; Wellness Video 3</h2>
+    <h2>Featured Health &amp; Wellness Video 4</h2>
     <p class="description">Watch this perspective from its original YouTube source.</p>
     <a class="source" href="https://www.youtube.com/shorts/bYyecKjXgyI" target="_blank" rel="noopener noreferrer">View original video</a>
   </div>
@@ -90,7 +100,7 @@ footer{text-align:center;padding:30px 20px;background:#061225;border-top:1px sol
   // Set each embedded YouTube player's initial volume to 50%.
   // Browsers and individual YouTube settings may override the initial level.
   function onYouTubeIframeAPIReady() {
-    ["testimonial-player-1", "testimonial-player-2", "testimonial-player-3"].forEach(function(id) {
+    ["testimonial-player-1", "testimonial-player-2", "testimonial-player-3", "testimonial-player-4"].forEach(function(id) {
       new YT.Player(id, {
         events: {
           onReady: function(event) {

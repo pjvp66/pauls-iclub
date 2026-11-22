@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Videos and perspectives on health and wellness shared by professionals and other speakers.">
+<title>Testimonials & Perspectives | Paul's IClub</title>
+<style>
+:root{--navy:#07172d;--navy-light:#102846;--gold:#e2bd76;--white:#f5f7fb;--muted:#bec9d8}
+*{box-sizing:border-box}body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.7}
+nav{background:#061225;padding:16px 6%;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.logo{font-size:22px;font-weight:bold;color:var(--gold);text-decoration:none}
+nav .links{display:flex;gap:20px;flex-wrap:wrap}
+nav .links a{color:var(--white);text-decoration:none;font-size:14px}
+nav .links a:hover,nav .links a[aria-current=page]{color:var(--gold)}
+.container{width:min(1000px,90%);margin:auto}
+.hero{text-align:center;padding:70px 0 35px}
+.hero h1{font-size:clamp(30px,5vw,42px);color:var(--gold);margin:0 0 10px}
+.tagline{color:var(--gold);font-size:clamp(18px,3vw,23px);font-style:italic;margin:0 0 22px}
+.intro{color:var(--muted);max-width:760px;margin:0 auto}
+section.videos{padding:24px 0 65px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:22px}
+.card{border:1px solid #334766;background:var(--navy-light);border-radius:14px;overflow:hidden}
+.media{aspect-ratio:16/9;background:#07172d;display:grid;place-items:center;text-align:center;color:var(--muted)}
+.media iframe{width:100%;height:100%;border:0}
+.card-body{padding:22px}.card-body h2{font-size:21px;color:var(--gold);margin:0 0 7px}.speaker{font-size:14px;color:var(--white);margin:0 0 12px}
+.description{color:var(--muted);margin:0 0 10px}.source{color:var(--gold)}
+.notice{border-top:1px solid #334766;padding:24px 0 38px;color:var(--muted);font-size:14px}
+footer{text-align:center;padding:30px 20px;background:#061225;border-top:1px solid #334766;color:var(--muted);font-size:14px}
+@media(max-width:700px){nav{justify-content:center}nav .links{justify-content:center}.hero{padding-top:45px}}
+</style>
+</head>
+<body>
+<nav aria-label="Main navigation">
+<a class="logo" href="index.html">Paul's IClub</a>
+<div class="links">
+<a href="index.html#wellness">Health & Wellness</a>
+<a href="index.html#order-product">Order Product</a>
+<a href="testimonials.html" aria-current="page">Testimonials</a>
+</div>
+</nav>
+<main>
+<header class="hero container">
+<h1>Testimonials & Perspectives</h1>
+<p class="tagline">Real Voices. Valuable Insights. Different Perspectives.</p>
+<p class="intro">Explore videos from doctors, nutritionists, and other speakers sharing their own viewpoints and experiences related to health and wellness.</p>
+</header>
+<section class="videos container" aria-label="Featured videos">
+<div id="video-gallery" class="grid"></div>
+</section>
+<div class="container notice"><strong>Important:</strong> Featured videos reflect the individual speaker's views and do not necessarily represent an endorsement of Paul's IClub or any recommended product. Content is educational, not medical advice. Professional credentials should be independently verified. Videos are embedded only when permitted by their source platform; permission is needed before re-uploading third-party content.</div>
+</main>
+<footer>&copy; 2026 Paul's IClub. All rights reserved.<div>Connecting Products, Perspectives &amp; Possibilities!</div></footer>
+<script>
+// Add approved videos here. For YouTube, copy the 11-character ID from the video's URL.
+// Example: {title:"Video title",speaker:"Speaker name",credentials:"Verified credentials",description:"Brief description",youtubeId:"XXXXXXXXXXX",sourceUrl:"https://www.youtube.com/watch?v=XXXXXXXXXXX"}
+// Other social platforms may require an approved embed or a link to the original video.
+const videos=[];
+const gallery=document.getElementById('video-gallery');
+function element(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;}
+if(!videos.length){const card=element('article','card');const box=element('div','card-body');box.append(element('h2','', 'Featured Videos Coming Soon'),element('p','description','We are preparing our collection of educational videos and perspectives. Please check back soon.'));card.append(box);gallery.append(card);}
+for(const v of videos){
+ const card=element('article','card'),media=element('div','media'),body=element('div','card-body');
+ if(v.youtubeId && /^[a-zA-Z0-9_-]{11}$/.test(v.youtubeId)){const iframe=document.createElement('iframe');iframe.src='https://www.youtube-nocookie.com/embed/'+v.youtubeId;iframe.title=v.title||'Featured video';iframe.loading='lazy';iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';media.append(iframe);}
+ else media.append(element('p','', 'Watch at original source'));
+ body.append(element('h2','',v.title||'Featured video'));
+ if(v.speaker)body.append(element('p','speaker',v.speaker+(v.credentials?' · '+v.credentials:'')));
+ if(v.description)body.append(element('p','description',v.description));
+ if(v.sourceUrl && /^https:\/\//.test(v.sourceUrl)){const a=element('a','source','View original video');a.href=v.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';body.append(a);}
+ card.append(media,body);gallery.append(card);
+}
+</script>
+</body>
+</html>

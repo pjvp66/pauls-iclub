@@ -23,6 +23,8 @@ section.videos{padding:24px 0 65px}
 .card{border:1px solid #334766;background:var(--navy-light);border-radius:14px;overflow:hidden}
 .media{aspect-ratio:16/9;background:#07172d;display:grid;place-items:center;text-align:center;color:var(--muted)}
 .media iframe{width:100%;height:100%;border:0}
+.media.short{aspect-ratio:9/16;max-height:520px;margin:auto}
+.card:has(.media.short){max-width:370px;width:100%;margin-inline:auto}
 .card-body{padding:22px}.card-body h2{font-size:21px;color:var(--gold);margin:0 0 7px}.speaker{font-size:14px;color:var(--white);margin:0 0 12px}
 .description{color:var(--muted);margin:0 0 10px}.source{color:var(--gold)}
 .notice{border-top:1px solid #334766;padding:24px 0 38px;color:var(--muted);font-size:14px}
@@ -55,7 +57,15 @@ footer{text-align:center;padding:30px 20px;background:#061225;border-top:1px sol
 // Add approved videos here. For YouTube, copy the 11-character ID from the video's URL.
 // Example: {title:"Video title",speaker:"Speaker name",credentials:"Verified credentials",description:"Brief description",youtubeId:"XXXXXXXXXXX",sourceUrl:"https://www.youtube.com/watch?v=XXXXXXXXXXX"}
 // Other social platforms may require an approved embed or a link to the original video.
-const videos=[];
+const videos=[
+  {
+    title:"Featured Health & Wellness Video",
+    description:"A shared video perspective. Watch the original source for full context.",
+    youtubeId:"LAHmcqGIMzs",
+    sourceUrl:"https://www.youtube.com/shorts/LAHmcqGIMzs",
+    format:"short"
+  }
+];
 const gallery=document.getElementById('video-gallery');
 function element(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;}
 if(!videos.length){const card=element('article','card');const box=element('div','card-body');box.append(element('h2','', 'Featured Videos Coming Soon'),element('p','description','We are preparing our collection of educational videos and perspectives. Please check back soon.'));card.append(box);gallery.append(card);}
@@ -67,6 +77,7 @@ for(const v of videos){
  if(v.speaker)body.append(element('p','speaker',v.speaker+(v.credentials?' · '+v.credentials:'')));
  if(v.description)body.append(element('p','description',v.description));
  if(v.sourceUrl && /^https:\/\//.test(v.sourceUrl)){const a=element('a','source','View original video');a.href=v.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';body.append(a);}
+ if(v.format==='short')media.classList.add('short');
  card.append(media,body);gallery.append(card);
 }
 </script>

@@ -51,10 +51,11 @@ footer{text-align:center;padding:30px 20px;background:#061225;border-top:1px sol
 <div id="video-gallery" class="grid">
 <article class="card">
   <div class="media short">
-    <iframe id="testimonial-player-1" src="https://www.youtube-nocookie.com/embed/dJjYovOwKi0?enablejsapi=1" title="Featured Health &amp; Wellness Video 1" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+    <iframe id="testimonial-player-1" src="https://www.youtube-nocookie.com/embed/dJjYovOwKi0?enablejsapi=1" title="What are humic and fulvic acids — Dr. Drew Kidder" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
   </div>
   <div class="card-body">
-    <h2>Featured Health &amp; Wellness Video 1</h2>
+    <h2>What are humic and fulvic acids</h2>
+    <p class="speaker">Dr. Drew Kidder</p>
     <p class="description">Watch this perspective from its original YouTube source.</p>
     <a class="source" href="https://www.youtube.com/shorts/dJjYovOwKi0" target="_blank" rel="noopener noreferrer">View original video</a>
   </div>
@@ -104,7 +105,7 @@ footer{text-align:center;padding:30px 20px;background:#061225;border-top:1px sol
       new YT.Player(id, {
         events: {
           onReady: function(event) {
-            event.target.setVolume(50);
+            event.target.setVolume(id === "testimonial-player-1" ? 30 : 50);
           }
         }
       });

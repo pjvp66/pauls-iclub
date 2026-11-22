@@ -69,6 +69,16 @@ footer{text-align:center;padding:30px 20px;background:#061225;border-top:1px sol
     <a class="source" href="https://www.youtube.com/shorts/10VNWYOPsmk" target="_blank" rel="noopener noreferrer">View original video</a>
   </div>
 </article>
+<article class="card">
+  <div class="media short">
+    <iframe id="testimonial-player-3" src="https://www.youtube-nocookie.com/embed/bYyecKjXgyI?enablejsapi=1" title="Featured Health &amp; Wellness Video 3" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+  </div>
+  <div class="card-body">
+    <h2>Featured Health &amp; Wellness Video 3</h2>
+    <p class="description">Watch this perspective from its original YouTube source.</p>
+    <a class="source" href="https://www.youtube.com/shorts/bYyecKjXgyI" target="_blank" rel="noopener noreferrer">View original video</a>
+  </div>
+</article>
 </div>
 </section>
 <div class="container notice"><strong>Important:</strong> Featured videos reflect the individual speaker's views and do not necessarily represent an endorsement of Paul's IClub or any recommended product. Content is educational, not medical advice. Professional credentials should be independently verified. Videos are embedded only when permitted by their source platform; permission is needed before re-uploading third-party content.</div>
@@ -80,7 +90,7 @@ footer{text-align:center;padding:30px 20px;background:#061225;border-top:1px sol
   // Set each embedded YouTube player's initial volume to 50%.
   // Browsers and individual YouTube settings may override the initial level.
   function onYouTubeIframeAPIReady() {
-    ["testimonial-player-1", "testimonial-player-2"].forEach(function(id) {
+    ["testimonial-player-1", "testimonial-player-2", "testimonial-player-3"].forEach(function(id) {
       new YT.Player(id, {
         events: {
           onReady: function(event) {
